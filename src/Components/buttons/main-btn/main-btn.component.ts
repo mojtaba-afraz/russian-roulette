@@ -1,14 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-main-btn',
+  selector: 'main-btn',
   templateUrl: './main-btn.component.html',
   styleUrls: ['./main-btn.component.scss']
 })
 export class MainBtnComponent implements OnInit {
+  @Input() btn!: any;
+  constructor(private router: Router){}
 
-  constructor() { }
-
+  goToLink(link:string){
+    this.router.navigate([link])
+  }
   ngOnInit(): void {
   }
 
