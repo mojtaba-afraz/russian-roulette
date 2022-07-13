@@ -1,1 +1,23 @@
-<menu-layout></menu-layout>
+<game-layout>
+  <div class="grid md:grid-cols-4 sm:grid-cols-1">
+    <div class="col-span-1 w-full text-slate-200 h-screen bg-slate-700/80">
+      <div
+        *ngFor="let person of participants"
+        [class.bg-red-900]="!person.status"
+        [class.bg-green-900]="person.status"
+        [class.bg-blue-900]="turn === person.index && !gameOver"
+        class="tracking-widest Corleone w-full block p-4 flex justify-center content-center items-center"
+      >
+        <span class="text-5xl">
+          {{person.name}}
+        </span>
+      </div>
+    </div>
+    <div class="col-span-3 w-full text-slate-200 flex justify-center content-center items-center h-screen bg-slate-700/80">
+      <div>
+        <main-btn (click)="Shoot()" [btn]="{title:'shoot'}"></main-btn>
+        <h1>turn : {{participants[turn].name}}</h1>
+      </div>
+    </div>
+  </div>
+</game-layout>

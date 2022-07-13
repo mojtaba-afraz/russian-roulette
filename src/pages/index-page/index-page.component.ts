@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'index-page',
@@ -7,6 +8,10 @@ import {Component, OnInit} from '@angular/core';
 })
 export class IndexPageComponent implements OnInit {
   title = 'russian-roulette';
+  constructor(private router: Router){}
+  goToLink(link:string){
+    this.router.navigate([link])
+  }
   buttons = [
     {
       title:'Start',
