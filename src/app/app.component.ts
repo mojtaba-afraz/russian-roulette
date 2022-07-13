@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'russian-roulette';
+  ngOnInit(){
+    const audio = new Audio('assets/Sounds/backgroundMusic.mp3');
+    audio.loop = true;
+    audio.play().then(r => console.log(r));
+  }
 }
