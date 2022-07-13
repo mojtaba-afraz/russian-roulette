@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'main-btn',
@@ -8,11 +7,6 @@ import {Router} from '@angular/router';
 })
 export class MainBtnComponent implements OnInit {
   @Input() btn!: any;
-  constructor(private router: Router){}
-
-  goToLink(link:string){
-    this.router.navigate([link])
-  }
   ngOnInit(): void {
   }
 
