@@ -1,7 +1,12 @@
 <div class="main-section">
-  <div class="grid grid-cols-2">
+  <div class="grid md:grid-cols-2 sm:grid-cols-1">
     <div class="w-full text-slate-200	flex justify-center content-center items-center h-screen bg-slate-700/50">
-      <h2 class="text-7xl tracking-widest	font-Corleone">Russian Roulette</h2>
+      <div>
+        <h2 class="text-8xl tracking-widest	font-Corleone">Russian Roulette</h2>
+        <div *ngFor="let btn of buttons">
+          <main-btn [btn]="btn"></main-btn>
+        </div>
+      </div>
     </div>
     <div></div>
   </div>
