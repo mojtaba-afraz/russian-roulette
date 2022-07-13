@@ -7,24 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'russian-roulette';
-  buttons = [
-    {
-      title:'Start',
-      link:'/new',
-    },
-    {
-      title:'About Russian Roulette',
-      link:'/about-game',
-    },
-    {
-      title:'About Developer',
-      link:'/about-developer',
-    },
-
-  ];
+  backgroundSound(){
+    const audio = new Audio('assets/Sounds/backgroundMusic.mp3');
+    audio.loop = true;
+    audio.play().then(r => console.log(r));
+  }
   ngOnInit(){
-    // const audio = new Audio('assets/Sounds/backgroundMusic.mp3');
-    // audio.loop = true;
-    // audio.play().then(r => console.log(r));
+    this.backgroundSound()
   }
 }
