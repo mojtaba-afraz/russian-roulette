@@ -13,6 +13,6 @@ export class AppComponent {
     audio.play().then(r => console.log(r));
   }
   ngOnInit(){
-    this.backgroundSound()
+    // this.backgroundSound()
   }
 }
