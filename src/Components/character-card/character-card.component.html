@@ -1,12 +1,18 @@
-<div
-  [id]="'character-'+ character.index"
-  class="w-full cursor-pointer grid grid-cols-4 tracking-widest mt-2 mb-2 rounded-3xl border-b-4 bg-gray-800 Corleone w-full block p-4 flex justify-center content-center items-center"
-  [ngClass]="setCharacterClasses()"
->
-  <div>
-    <img alt="character" class="rounded-full" src="../../assets/character.jpeg"/>
+<section>
+  <div class="card" [class.active]="characterTurn">
+    <div class="card__border"></div>
+    <div class="card__border-line"></div>
+    <div class="card__inner">
+      <div class="card__img">
+        <div class="img__athlete">
+          <img style="max-height: 100px" [src]="images[character.index]" alt="Charles Leclerc">
+        </div>
+      </div>
+      <div class="card__text">
+        <div class="card__type" style="--bg-color: hsl(40, 100%, 50%);">TD</div>
+        <h1 class="name">{{character.name}}</h1>
+        <p class="points">36 PTS</p>
+      </div>
+    </div>
   </div>
-  <div class="col-span-3 align-center justify-center">
-    <h4 class="text-center w-full text-4xl tracking-widest">{{character.name}}</h4>
-  </div>
-</div>
+</section>
