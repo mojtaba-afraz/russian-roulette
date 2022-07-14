@@ -10,15 +10,22 @@ import {GameService} from "../../app/game.service";
 export class NewPageComponent implements OnInit {
   game:GameService;
   inputValue:string = '';
+  addPlayerMode:boolean = false
   constructor(private router: Router,private gameService : GameService){
     this.game = gameService
   }
   addUser(){
+    if (this.inputValue){
     this.game.addParticipants(this.inputValue)
     this.inputValue = ''
+    }
+
   }
   startGame(){
     this.router.navigate(['game'])
+  }
+  activateAddPlayerMode(){
+    this.addPlayerMode = true
   }
 
   ngOnInit(): void {
