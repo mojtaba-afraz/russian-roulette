@@ -1,5 +1,7 @@
 <menu-layout>
-  <div *ngFor="let btn of buttons">
-    <main-btn (click)="goToLink(btn.link)" [btn]="btn"></main-btn>
+  <div class="px-4">
+    <div *ngFor="let btn of buttons">
+      <main-btn (click)="goToLink(btn.link)" [btn]="btn"></main-btn>
+    </div>
   </div>
 </menu-layout>

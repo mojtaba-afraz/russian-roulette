@@ -122,10 +122,9 @@ export class NewPageComponent implements OnInit {
     this.router.navigate(['/'])
   }
   backgroundSound(){
-    // this.audio = new Audio('assets/Sounds/bg1.mp3');
-    // this.audio.loop = true;
-    // this.audio.setAttribute('crossorigin', 'anonymous');
-    // this.audio.play()
+    this.audio = new Audio('assets/Sounds/bg1.mp3');
+    this.audio.loop = true;
+    this.audio.play()
   }
   constructor(private router: Router){
   }
