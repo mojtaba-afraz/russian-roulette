@@ -7,7 +7,8 @@ import { MainBtnComponent } from '../Components/buttons/main-btn/main-btn.compon
 import { NewPageComponent } from '../pages/new-page/new-page.component';
 import { IndexPageComponent } from '../pages/index-page/index-page.component';
 import { MenuLayoutComponent } from '../Components/menu-layout/menu-layout.component';
-import {GameLayoutComponent} from '../Components/game-layout/game-layout.component'
+import {GameLayoutComponent} from '../Components/game-layout/game-layout.component';
+import { CharacterCardComponent } from '../Components/character-card/character-card.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {GameLayoutComponent} from '../Components/game-layout/game-layout.compone
     NewPageComponent,
     IndexPageComponent,
     MenuLayoutComponent,
-    GameLayoutComponent
+    GameLayoutComponent,
+    CharacterCardComponent
   ],
   imports: [
     BrowserModule,

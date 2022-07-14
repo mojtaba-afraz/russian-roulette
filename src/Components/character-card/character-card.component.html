@@ -1,0 +1,12 @@
+<div
+  [id]="'character-'+ character.index"
+  class="w-full cursor-pointer grid grid-cols-4 tracking-widest mt-2 mb-2 rounded-3xl border-b-4 bg-gray-800 Corleone w-full block p-4 flex justify-center content-center items-center"
+  [ngClass]="setCharacterClasses()"
+>
+  <div>
+    <img alt="character" class="rounded-full" src="../../assets/character.jpeg"/>
+  </div>
+  <div class="col-span-3 align-center justify-center">
+    <h4 class="text-center w-full text-4xl tracking-widest">{{character.name}}</h4>
+  </div>
+</div>

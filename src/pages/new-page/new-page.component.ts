@@ -50,6 +50,9 @@ export class NewPageComponent implements OnInit {
   bulletCount = 1
   turn = 0;
   gameOver = false;
+  resultBannerOpacity:number = 0;
+  ResultBannerInterval:any = null;
+
   reloadGun(){
     for (let counter = 0;counter < this.bulletCount;counter++){
       this.magazine.push(1)
@@ -70,14 +73,30 @@ export class NewPageComponent implements OnInit {
     }
     return array;
   }
+  dockScrollTop(){
+    let dockScrollTop = document!.getElementById("character-dock")!.scrollTop
+    let scrollTop:number = window.pageYOffset || dockScrollTop;
+    document!.getElementById("character-dock")!.scrollTop = scrollTop + 25
+  }
+  showResultBanner(){
+    this.ResultBannerInterval = setInterval(()=>{
+      console.log(this.resultBannerOpacity)
+      if (this.resultBannerOpacity >= 1){
+        clearInterval(this.ResultBannerInterval);
+      }
+      this.resultBannerOpacity += 0.1000
+    }, 40);
+  }
   Shoot(){
     if (this.magazine[this.turn]){
       this.shotSound()
       this.participants[this.turn].status = 0
       this.gameOver = true
+      this.showResultBanner()
     }
     else {
       this.turn = this.turn + 1
+      this.dockScrollTop()
       this.cockingSound()
     }
   }
@@ -92,8 +111,6 @@ export class NewPageComponent implements OnInit {
   constructor() {
     this.reloadGun()
   }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }
