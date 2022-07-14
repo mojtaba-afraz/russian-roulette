@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {GameService} from "../../app/game.service";
 
 @Component({
-  selector: 'new-page',
-  templateUrl: './new-page.component.html',
-  styleUrls: ['./new-page.component.scss']
+  selector: 'game-page',
+  templateUrl: './game-page.component.html',
+  styleUrls: ['./game-page.component.scss']
 })
-export class NewPageComponent implements OnInit {
-  participants = [
+export class GamePageComponent implements OnInit {
+  participants1:{name:string,status:number,index:number}[] = [
     {
       name: 'Ali',
       status: 1,
@@ -47,12 +48,14 @@ export class NewPageComponent implements OnInit {
 
     },
   ];
+  participants:{name:string,status:number,index:number}[] = [];
   magazine: number[] = []
   bulletCount = 1
   turn = 0;
   gameOver = false;
   resultBannerOpacity: number = 0;
   audio:any;
+  loaderOpacity:number = 1;
 
   reloadGun() {
     for (let counter = 0; counter < this.bulletCount; counter++) {
@@ -93,8 +96,16 @@ export class NewPageComponent implements OnInit {
       if (this.resultBannerOpacity >= 1){
         clearInterval(ResultBannerInterval);
       }
-      this.resultBannerOpacity += 0.1000
+      this.resultBannerOpacity += 0.1
     }, 40);
+  }
+  loadGameUI(){
+    let loader = setInterval(()=>{
+      if (this.loaderOpacity <= 0){
+        clearInterval(loader);
+      }
+      this.loaderOpacity -= 0.1
+    }, 50);
   }
   Shoot(){
     if (this.magazine[this.turn]){
@@ -119,18 +130,21 @@ export class NewPageComponent implements OnInit {
     audio.play()
   }
   goToMenu(){
+    this.gameService.clearParticipants()
     this.router.navigate(['/'])
   }
   backgroundSound(){
-    this.audio = new Audio('assets/Sounds/bg1.mp3');
-    this.audio.loop = true;
-    this.audio.play()
+    // this.audio = new Audio('assets/Sounds/bg1.mp3');
+    // this.audio.loop = true;
+    // this.audio.play()
   }
-  constructor(private router: Router){
+  constructor(private router: Router,private gameService : GameService){
+    this.participants = gameService.getParticipants(true)
   }
   ngOnInit(): void {
     this.reloadGun()
     this.backgroundSound()
+    this.loadGameUI()
   }
 
 }

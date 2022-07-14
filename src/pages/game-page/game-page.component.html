@@ -1,7 +1,8 @@
 <game-layout>
+  <div id="init" class="bg-black w-screen h-screen absolute z-50 opacity-100" [style.opacity]="loaderOpacity" [style.visibility]="(loaderOpacity <= 0 ) ? 'hidden' : 'block' "></div>
   <div class="bg-black w-screen absolute z-50 h-screen absolute overflow-hidden align-center justify-center flex items-center " [style.visibility]="resultBannerOpacity ? 'visible' : 'hidden' " [style.opacity]="resultBannerOpacity" >
     <div class=" relative z-50">
-      <p class="text-amber-50 text-5xl sm:text-9xl font-Corleone text-center">{{participants[turn].name + " Killed"}}</p>
+      <p class="text-amber-50 text-5xl sm:text-9xl font-Corleone text-center">{{participants[turn]!.name + " Killed"}}</p>
       <p class="text-amber-50 text-3xl font-Corleone text-center mt-4">* <span class="text-green-300">The rest survived</span> *</p>
       <main-btn class="text-white mt-4" (click)="goToMenu()" [btn]="{title:'Back To Menu'}"></main-btn>
     </div>
@@ -18,9 +19,7 @@
     </div>
     <div class="col-span-3 w-full text-slate-200 flex justify-center content-center items-center h-screen bg-slate-700/80 p-4">
       <div class="w-full">
-        <h1 style="letter-spacing: 0.7rem" class="text-center text-5xl">
-          {{participants[turn].name}}
-        </h1>
+          <app-character-card [isKilled]="!participants[turn].status" [characterTurn]="turn === participants[turn].index" [turn]="turn" [character]="participants[turn]"></app-character-card>
         <main-btn (click)="Shoot()" [btn]="{title:'S H O O T'}"></main-btn>
       </div>
     </div>

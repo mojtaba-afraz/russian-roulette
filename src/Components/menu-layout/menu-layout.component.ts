@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'menu-layout',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-layout.component.scss']
 })
 export class MenuLayoutComponent implements OnInit {
-
+  @Input() title:string = 'Russian Roulette'
   constructor() { }
 
   ngOnInit(): void {
