@@ -20,6 +20,10 @@ const routes: Routes = [
     path:'game',
     component:GamePageComponent
   },
+  {
+    path: '**',
+    component: IndexPageComponent
+  },
 ];
 
 @NgModule({
