@@ -1,28 +1,11 @@
-<game-layout>
-  <div class="bg-black w-screen absolute z-50 h-screen absolute overflow-hidden align-center justify-center flex items-center " [style.visibility]="resultBannerOpacity ? 'visible' : 'hidden' " [style.opacity]="resultBannerOpacity" >
-    <div class=" relative z-50">
-      <p class="text-amber-50 text-5xl sm:text-9xl font-Corleone text-center">{{participants[turn].name + " Killed"}}</p>
-      <p class="text-amber-50 text-3xl font-Corleone text-center mt-4">* <span class="text-green-300">The rest survived</span> *</p>
-      <main-btn class="text-white mt-4" (click)="goToMenu()" [btn]="{title:'Back To Menu'}"></main-btn>
-    </div>
-    <img alt="blood" src="assets/blood.png" class="absolute"/>
-  </div>
-  <div class="grid md:grid-cols-4 sm:grid-cols-1">
-    <div id="character-dock" class="hidden sm:flex col-span-1 p-3 w-full max-h-screen overflow-scroll text-slate-200 h-screen bg-slate-700">
-      <div class="grid md:grid-cols-1 sm:grid-cols-2 w-full">
-        <h1 class="text-4xl text-center tracking-widest">Participants Dock : </h1>
-        <div *ngFor="let person of participants">
-        <app-character-card [turn]="turn" [id]="'character-' + person.index" [characterTurn]="turn === person.index" [isKilled]="!person.status" [character]="person"></app-character-card>
-      </div>
-      </div>
-    </div>
-    <div class="col-span-3 w-full text-slate-200 flex justify-center content-center items-center h-screen bg-slate-700/80 p-4">
-      <div class="w-full">
-        <h1 style="letter-spacing: 0.7rem" class="text-center text-5xl">
-          {{participants[turn].name}}
-        </h1>
-        <main-btn (click)="Shoot()" [btn]="{title:'S H O O T'}"></main-btn>
-      </div>
+<menu-layout title="players">
+  <input [(ngModel)]="inputValue" type="text" placeholder="Name"/>
+  <div *ngIf="game.getParticipants().length">
+    <p class="text-3xl tracking-widest">Players :</p>
+    <div *ngFor="let person of game.getParticipants()">
+      <p class="text-2xl tracking-widest">{{person.name}}</p>
     </div>
   </div>
-</game-layout>
+  <main-btn (click)="addUser()" [btn]="{title:'ADD'}"></main-btn>
+  <main-btn (click)="startGame()" [btn]="{title:'START'}"></main-btn>
+</menu-layout>

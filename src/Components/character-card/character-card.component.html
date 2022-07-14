@@ -12,7 +12,7 @@
         <div [style.--bg-color]="!isKilled ? 'green' : 'red'" class="card__type tracking-widest" style=": hsl(40, 100%, 50%);">
           {{(isKilled) ? "Killed" : (turn > character.index) ? 'Survived' : 'Alive'}}
         </div>
-        <h1 class="name">{{character.name}}</h1>
+        <h1 class="name tracking-widest">{{character.name}}</h1>
         <p class="points"></p>
       </div>
     </div>
