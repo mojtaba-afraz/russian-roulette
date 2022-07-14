@@ -9,24 +9,24 @@ import {Router} from "@angular/router";
 export class NewPageComponent implements OnInit {
   participants = [
     {
-      name:'ali',
+      name:'Ali',
       status:1,
       index:0,
     },
     {
-      name:'mojtaba',
+      name:'Mojtaba',
       status:1,
       index:1,
 
     },
     {
-      name:'mamad',
+      name:'Mamad',
       status:1,
       index:2,
 
     },
     {
-      name:'reyhaneh',
+      name:'Reyhaneh',
       status:1,
       index:3,
     },
@@ -77,7 +77,7 @@ export class NewPageComponent implements OnInit {
   dockScrollTop(){
     let dockScrollTop = document!.getElementById("character-dock")!.scrollTop
     let scrollTop:number = window.pageYOffset || dockScrollTop;
-    document!.getElementById("character-dock")!.scrollTop = scrollTop + 25
+    document!.getElementById("character-dock")!.scrollTop = scrollTop + 200
   }
   showResultBanner(){
     this.ResultBannerInterval = setInterval(()=>{

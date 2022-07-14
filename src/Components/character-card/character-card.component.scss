@@ -1,0 +1,186 @@
+
+section {
+  text-align: center;
+}
+
+
+img {
+  width: 100%;
+  vertical-align: middle;
+}
+.active{
+  --color: hsl(357, 100%, 49%);
+}
+.card-list {
+  text-align: center;
+  font-weight: 800;
+  text-transform: uppercase;
+
+}
+.card__border,
+.card__border-line,
+.card__inner {
+  -webkit-clip-path: polygon(50% 0, 100% 20%, 100% 80%, 50% 100%, 0% 80%, 0% 20%);
+  clip-path: polygon(50% 0, 100% 20%, 100% 80%, 50% 100%, 0% 80%, 0% 20%);
+}
+
+.card {
+  -webkit-filter: drop-shadow(0px 0px 5px var(--color)) drop-shadow(0px 0px 15px var(--color));
+  filter: drop-shadow(0px 0px 5px var(--color)) drop-shadow(0px 0px 15px var(--color));
+  position: relative;
+  max-width: 400px;
+  margin: auto;
+  z-index: 1;
+}
+
+.card__border {
+  position: absolute;
+  width: 98%;
+  height: 102%;
+  background: var(--color);
+  left: 1%;
+  top: 1%;
+}
+
+.card__border-line {
+  position: absolute;
+  width: 95%;
+  height: 99%;
+  left: 2.5%;
+  top: 2.5%;
+  background: -webkit-gradient(linear,
+    left top, left bottom,
+    color-stop(33%, hsl(42, 90%, 72%)),
+    color-stop(70%, hsl(0, 0%, 0%)));
+  background: linear-gradient(to bottom,
+    hsl(42, 90%, 72%) 33%,
+    hsl(0, 0%, 0%) 70%);
+}
+
+.card__inner {
+  background: -webkit-linear-gradient(179deg, var(--color), #e3a83b 90%);
+  background: linear-gradient(179deg, var(--color), #e3a83b 90%);
+  padding: 0.5rem 0.2rem 0;
+  width: 92%;
+  margin-top: 4.8%;
+  margin-left: 4%;
+}
+
+.card__img {
+  display: flex;
+  padding: 0 1rem;
+  background: repeating-linear-gradient(126deg,
+    hsla(0, 0%, 100%, 0.219) 0%,
+    #ffffff57 1.2%,
+    transparent 1.19%,
+    transparent 4%,
+    transparent 4.1%);
+
+  @media screen and (max-width: 550px) {
+    padding: 0 .2rem;
+  }
+}
+
+.img__team {
+  flex: 1 1 30%;
+  background: hsla(0, 0%, 0%, 0.82);
+  display: flex;
+  padding: 0.3rem;
+  align-items: center;
+  padding-top: 15%;
+}
+
+.img__athlete {
+  flex: 1 1 75%;
+  padding-top: 8%;
+  img {
+    object-fit: cover;
+    object-position: top;
+  }
+}
+
+.card__type {
+  width: 50%;
+  width: min-content;
+  margin: auto;
+  padding: 0 10%;
+  border-radius: 5px;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-size: 1.5rem;
+  margin-top: -6%;
+
+  @media screen and (max-width: 500px) {
+    font-size: min(1.2rem, 5vw);
+  }
+}
+
+.card__text{
+  position: relative;
+  padding-bottom: 16%;
+  &:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: url('https://i.pinimg.com/originals/80/7d/ce/807dcedf950725fea6b935cdb6ffb4a6.jpg'); /* Sand texture*/
+    opacity: 0.3;
+    z-index: -1;
+  }
+}
+
+.name {
+  font-size: 2.8rem;
+  margin: 2% 0 0;
+  position: relative;
+  // Gradient border below the player name
+  &:before {
+    content: '';
+    background: -webkit-gradient(linear,
+      left top, right top,
+      from(transparent),
+      color-stop(#3730305c) ,
+      color-stop(black),
+      color-stop(#0000004f) ,
+      to(transparent));
+    background: linear-gradient(to right,
+      transparent,
+      #3730305c ,
+      black,
+      #0000004f ,
+      transparent);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 5%;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: min(10vw, 2.5rem);
+  }
+}
+
+.points {
+  font-size: 4rem;
+  margin: 0 0 10%;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    transform: translateX(-50%);
+    width: 25%;
+    height: 5%;
+    background: black;
+
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: min(12vw, 3.5rem);
+  }
+}
+

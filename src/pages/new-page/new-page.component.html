@@ -1,21 +1,27 @@
 <game-layout>
-  <div class="bg-black w-screen h-screen absolute overflow-hidden align-center justify-center flex items-center " [style.visibility]="resultBannerOpacity ? 'visible' : 'hidden' " [style.opacity]="resultBannerOpacity" >
-    <div class=" relative z-20">
+  <div class="bg-black w-screen absolute z-50 h-screen absolute overflow-hidden align-center justify-center flex items-center " [style.visibility]="resultBannerOpacity ? 'visible' : 'hidden' " [style.opacity]="resultBannerOpacity" >
+    <div class=" relative z-50">
       <p class="text-amber-50 text-9xl font-Corleone">{{participants[turn].name + " Killed"}}</p>
+      <p class="text-amber-50 text-3xl font-Corleone text-center mt-4">* <span class="text-green-300">The rest survived</span> *</p>
       <main-btn class="text-white mt-4" (click)="goToMenu()" [btn]="{title:'Back To Menu'}"></main-btn>
     </div>
     <img alt="blood" src="assets/blood.png" class="absolute"/>
   </div>
   <div class="grid md:grid-cols-4 sm:grid-cols-1">
-    <div id="character-dock" class="col-span-1 p-3 w-full max-h-screen overflow-scroll text-slate-200 h-screen bg-slate-700">
-      <h1 class="text-4xl text-center tracking-widest">Players Dock : </h1>
+    <div id="character-dock" class="col-span-2 p-3 w-full max-h-screen overflow-scroll text-slate-200 h-screen bg-slate-700">
+      <h1 class="text-4xl text-center tracking-widest">participants Dock : </h1>
+      <div class="grid md:grid-cols-3 sm:grid-cols-2">
       <div *ngFor="let person of participants">
         <app-character-card [id]="'character-' + person.index" [characterTurn]="turn === person.index" [isKilled]="!person.status" [character]="person"></app-character-card>
       </div>
+      </div>
     </div>
-    <div class="col-span-3 w-full text-slate-200 flex justify-center content-center items-center h-screen bg-slate-700/80">
-      <div>
-        <main-btn (click)="Shoot()" [btn]="{title:'shoot'}"></main-btn>
+    <div class="col-span-2 w-full text-slate-200 flex justify-center content-center items-center h-screen bg-slate-700/80 p-4">
+      <div class="w-full">
+        <h1 style="letter-spacing: 0.7rem" class="text-center text-5xl">
+          {{participants[turn].name}}
+        </h1>
+        <main-btn (click)="Shoot()" [btn]="{title:'S H O O T'}"></main-btn>
       </div>
     </div>
   </div>
