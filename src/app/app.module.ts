@@ -9,7 +9,6 @@ import { IndexPageComponent } from '../pages/index-page/index-page.component';
 import { MenuLayoutComponent } from '../Components/menu-layout/menu-layout.component';
 import {GameLayoutComponent} from '../Components/game-layout/game-layout.component';
 import { CharacterCardComponent } from '../Components/character-card/character-card.component'
-import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -25,12 +24,7 @@ import {HashLocationStrategy, LocationStrategy} from "@angular/common";
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [
-    {
-      provide: LocationStrategy,
-      useClass: HashLocationStrategy
-    },
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
