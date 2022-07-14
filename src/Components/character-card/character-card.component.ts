@@ -9,6 +9,7 @@ export class CharacterCardComponent implements OnInit {
   @Input() character:any;
   @Input() isKilled:boolean = false;
   @Input() characterTurn:boolean = false;
+  @Input() turn: number = -1;
   images:string[] = [
     'https://pngpress.com/wp-content/uploads/2020/08/uploads_gangster_gangster_PNG13.png',
     'https://pngimg.com/uploads/gangster/gangster_PNG68.png',
