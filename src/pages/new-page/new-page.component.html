@@ -1,0 +1,11 @@
+<menu-layout title="players">
+  <input [(ngModel)]="inputValue" type="text" placeholder="Name"/>
+  <div *ngIf="game.getParticipants().length">
+    <p class="text-3xl tracking-widest">Players :</p>
+    <div *ngFor="let person of game.getParticipants()">
+      <p class="text-2xl tracking-widest">{{person.name}}</p>
+    </div>
+  </div>
+  <main-btn (click)="addUser()" [btn]="{title:'ADD'}"></main-btn>
+  <main-btn (click)="startGame()" [btn]="{title:'START'}"></main-btn>
+</menu-layout>
