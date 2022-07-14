@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'new-page',
@@ -108,7 +109,10 @@ export class NewPageComponent implements OnInit {
     const audio = new Audio('assets/Sounds/cocking.mp3');
     audio.play().then(r => console.log(r));
   }
-  constructor() {
+  goToMenu(){
+    this.router.navigate(['/'])
+  }
+  constructor(private router: Router){
     this.reloadGun()
   }
   ngOnInit(): void {}

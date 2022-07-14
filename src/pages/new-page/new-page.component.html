@@ -1,5 +1,11 @@
 <game-layout>
-  <div [style.visibility]="resultBannerOpacity ? 'visible' : 'hidden' " [style.opacity]="resultBannerOpacity" style="background-color: black;width: 100vw;height: 100vh;position: absolute;z-index: 2;"></div>
+  <div class="bg-black w-screen h-screen absolute overflow-hidden align-center justify-center flex items-center " [style.visibility]="resultBannerOpacity ? 'visible' : 'hidden' " [style.opacity]="resultBannerOpacity" >
+    <div class=" relative z-20">
+      <p class="text-amber-50 text-9xl font-Corleone">{{participants[turn].name + " Killed"}}</p>
+      <main-btn class="text-white mt-4" (click)="goToMenu()" [btn]="{title:'Back To Menu'}"></main-btn>
+    </div>
+    <img alt="blood" src="assets/blood.png" class="absolute"/>
+  </div>
   <div class="grid md:grid-cols-4 sm:grid-cols-1">
     <div id="character-dock" class="col-span-1 p-3 w-full max-h-screen overflow-scroll text-slate-200 h-screen bg-slate-700">
       <h1 class="text-4xl text-center tracking-widest">Players Dock : </h1>
