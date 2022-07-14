@@ -1,22 +1,15 @@
 <game-layout>
+  <div [style.visibility]="resultBannerOpacity ? 'visible' : 'hidden' " [style.opacity]="resultBannerOpacity" style="background-color: black;width: 100vw;height: 100vh;position: absolute;z-index: 2;"></div>
   <div class="grid md:grid-cols-4 sm:grid-cols-1">
-    <div class="col-span-1 w-full text-slate-200 h-screen bg-slate-700/80">
-      <div
-        *ngFor="let person of participants"
-        [class.bg-red-900]="!person.status"
-        [class.bg-green-900]="person.status"
-        [class.bg-blue-900]="turn === person.index && !gameOver"
-        class="tracking-widest Corleone w-full block p-4 flex justify-center content-center items-center"
-      >
-        <span class="text-5xl">
-          {{person.name}}
-        </span>
+    <div id="character-dock" class="col-span-1 p-3 w-full max-h-screen overflow-scroll text-slate-200 h-screen bg-slate-700">
+      <h1 class="text-4xl text-center tracking-widest">Players Dock : </h1>
+      <div *ngFor="let person of participants">
+        <app-character-card [id]="'character-' + person.index" [characterTurn]="turn === person.index" [isKilled]="!person.status" [character]="person"></app-character-card>
       </div>
     </div>
     <div class="col-span-3 w-full text-slate-200 flex justify-center content-center items-center h-screen bg-slate-700/80">
       <div>
         <main-btn (click)="Shoot()" [btn]="{title:'shoot'}"></main-btn>
-        <h1>turn : {{participants[turn].name}}</h1>
       </div>
     </div>
   </div>
