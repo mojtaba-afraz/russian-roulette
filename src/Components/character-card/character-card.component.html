@@ -9,9 +9,11 @@
         </div>
       </div>
       <div class="card__text">
-        <div class="card__type" style="--bg-color: hsl(40, 100%, 50%);">TD</div>
+        <div [style.--bg-color]="!isKilled ? 'green' : 'red'" class="card__type tracking-widest" style=": hsl(40, 100%, 50%);">
+          {{(isKilled) ? "Killed" : (turn > character.index) ? 'Survived' : 'Alive'}}
+        </div>
         <h1 class="name">{{character.name}}</h1>
-        <p class="points">36 PTS</p>
+        <p class="points"></p>
       </div>
     </div>
   </div>
