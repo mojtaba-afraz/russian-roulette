@@ -25,7 +25,7 @@ export class NewPageComponent implements OnInit {
     this.router.navigate(['game'])
   }
   activateAddPlayerMode(){
-    this.addPlayerMode = true
+    this.addPlayerMode = !this.addPlayerMode
   }
 
   ngOnInit(): void {
