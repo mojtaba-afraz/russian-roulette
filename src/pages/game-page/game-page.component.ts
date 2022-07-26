@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {GameService} from "../../app/game.service";
+import {GameService} from "../../services/game.service";
 
 @Component({
   selector: 'game-page',
@@ -65,17 +65,7 @@ export class GamePageComponent implements OnInit {
     for (let counter = 0; counter < emptyCount; counter++) {
       this.magazine.push(0)
     }
-    this.magazine = this.shuffle(this.magazine)
-  }
-  shuffle(array: number[]) {
-    let currentIndex = array.length, randomIndex;
-    while (currentIndex != 0) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-      [array[currentIndex], array[randomIndex]] =
-        [array[randomIndex], array[currentIndex]];
-    }
-    return array;
+    this.magazine = this.gameService.shuffle(this.magazine)
   }
   dockScrollTop() {
     let scrollInterval:number;
@@ -109,7 +99,7 @@ export class GamePageComponent implements OnInit {
   }
   Shoot(){
     if (this.magazine[this.turn]){
-      this.shotSound()
+      this.gameService.shootSound()
       this.participants[this.turn].status = 0
       this.gameOver = true
       this.showResultBanner()
@@ -121,10 +111,6 @@ export class GamePageComponent implements OnInit {
       this.cockingSound()
     }
   }
-  shotSound(){
-    const audio = new Audio('assets/Sounds/shot.mp3');
-    audio.play()
-  }
   cockingSound(){
     const audio = new Audio('assets/Sounds/cocking.mp3');
     audio.play()
@@ -134,9 +120,9 @@ export class GamePageComponent implements OnInit {
     this.router.navigate(['/'])
   }
   backgroundSound(){
-    // this.audio = new Audio('assets/Sounds/bg1.mp3');
-    // this.audio.loop = true;
-    // this.audio.play()
+    this.audio = new Audio('assets/Sounds/bg1.mp3');
+    this.audio.loop = true;
+    this.audio.play()
   }
   constructor(private router: Router,private gameService : GameService){
     this.participants = gameService.getParticipants(true)

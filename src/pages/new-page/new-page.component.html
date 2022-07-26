@@ -1,6 +1,7 @@
-<menu-layout title="players">
+<menu-layout title="play">
   <div class="px-5">
-    <main-btn (click)="startGame()" [btn]="{title:(addPlayerMode ? 'start' :'Quick Play')}"></main-btn>
+    <main-btn (click)="startGameOneToOne()" [btn]="{title:(addPlayerMode ? 'start' :'1v1')}"></main-btn>
+    <main-btn (click)="startGame()" [btn]="{title:(addPlayerMode ? 'start' :'Quick Play {Group}')}"></main-btn>
     <main-btn (click)="activateAddPlayerMode()" [btn]="{title:'Add Plyers'}"></main-btn>
     <div *ngIf="addPlayerMode">
       <input [(ngModel)]="inputValue" type="text" placeholder="Name"/>

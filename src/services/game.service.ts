@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
+interface participant {
+  name:string,
+  status:number,
+  index:number
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
-  participants:{name:string,status:number,index:number}[] = []
+  participants:participant[] = []
   userNames:string[] = [
     'Fastfingers',
     'Fat Tony',
@@ -44,7 +49,22 @@ export class GameService {
     }
       return this.participants
   }
+  shuffle(array: number[]) {
+    let currentIndex = array.length, randomIndex;
+    while (currentIndex != 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [array[currentIndex], array[randomIndex]] =
+        [array[randomIndex], array[currentIndex]];
+    }
+    return array;
+  }
   clearParticipants(){
     this.participants = []
   }
+  shootSound(){
+    const audio = new Audio('assets/Sounds/shot.mp3');
+    audio.play()
+  }
+
 }

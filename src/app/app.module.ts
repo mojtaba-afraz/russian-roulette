@@ -11,6 +11,7 @@ import {GameLayoutComponent} from '../Components/game-layout/game-layout.compone
 import { CharacterCardComponent } from '../Components/character-card/character-card.component';
 import { NewPageComponent } from '../pages/new-page/new-page.component'
 import {FormsModule} from "@angular/forms";
+import { One2onePageComponent } from '../pages/one2one-page/one2one-page.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {FormsModule} from "@angular/forms";
     MenuLayoutComponent,
     GameLayoutComponent,
     CharacterCardComponent,
-    NewPageComponent
+    NewPageComponent,
+    One2onePageComponent
   ],
   imports: [
     BrowserModule,

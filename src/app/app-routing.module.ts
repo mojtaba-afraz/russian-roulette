@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {IndexPageComponent} from "src/pages/index-page/index-page.component";
 import {GamePageComponent} from "src/pages/game-page/game-page.component"
 import {NewPageComponent} from "../pages/new-page/new-page.component";
+import {One2onePageComponent} from "../pages/one2one-page/one2one-page.component";
 // -> pages
 
 const routes: Routes = [
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path:'game',
     component:GamePageComponent
+  },
+  {
+    path:'1v1',
+    component:One2onePageComponent
   },
   {
     path: '**',

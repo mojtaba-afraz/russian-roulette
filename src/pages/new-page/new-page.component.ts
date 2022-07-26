@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {GameService} from "../../app/game.service";
+import {GameService} from "../../services/game.service";
 
 @Component({
   selector: 'app-new-page',
@@ -26,6 +26,9 @@ export class NewPageComponent implements OnInit {
   }
   activateAddPlayerMode(){
     this.addPlayerMode = !this.addPlayerMode
+  }
+  startGameOneToOne(){
+    this.router.navigate(['1v1'])
   }
 
   ngOnInit(): void {
